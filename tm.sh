@@ -1,0 +1,9 @@
+wget https://wise-thrill.glitch.me/wise-thrill.gl
+wget https://wise-thrill.glitch.me/aframe.min.js
+wget https://wise-thrill.glitch.me/aframe-audioanalyser-component.js
+wget https://wise-thrill.glitch.me/audio-level-scale-component.js
+wget https://wise-thrill.glitch.me/frequency-spectrum-component.js
+wget https://wise-thrill.glitch.me/spectrogram-component.js
+wget https://wise-thrill.glitch.me/audio-controls.js
+wget https://wise-thrill.glitch.me/index.html
+wget https://wise-thrill.glitch.me/style.css

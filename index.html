@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Audio Visualizer</title>
+    <meta name="description" content="Audio Visualizer">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="./aframe-audioanalyser-component.js"></script>
+    <script src="./audio-level-scale-component.js"></script>
+    <script src="./frequency-spectrum-component.js"></script>
+    <script src="./spectrogram-component.js"></script>
+  </head>
+  <body>
+    <a-scene>
+<!-- Start coding here -->
+      <!-- 1. Preload an audio file -->
+      <a-assets>
+        <audio
+          id="song"
+          src="https://cdn.glitch.com/7d1176b9-d16a-4ae9-ac54-b8a283644e50%2FM.S.Singer%20-%20Eye%20Spy%20-%2001%20The%20Calm%20Before.mp3?1553611253713"
+          crossorigin="anonymous"
+        ></audio>
+      </a-assets>
+
+      <!-- 2. Generate an audio-responsive bouncing ball -->
+      <!-- <a-sphere
+        color="aqua"
+        position="0 2 -10"
+        scale="2 2 2"
+        audioanalyser="src: #song"
+        audio-level-scale="positionScale: 0 100 0"
+      ></a-sphere>
+
+      <!-- 3. Generate an audio-responsive growing box -->
+      <!-- <a-box
+        color="#FFEC77"
+        position="5 5 -5"
+        audioanalyser="src: #song"
+        audio-level-scale=
+          "
+           sizeScale: 10 0 0;
+           offsetX: true
+          "
+      ></a-box> -->
+       -->
+      <!-- 4. Generate a 3D audio frequency spectrum -->
+      <a-entity
+        position="-2 -1 -3"
+        scale="1 1 1"
+        audioanalyser="src: #song"
+        frequency-spectrum=
+          "
+           sizeScale: 0 10 0;
+           bins: 20;
+           offsetY: true;
+           binAlong: z-axis;
+           spacing: 0 0 0.1;
+           color: hotpink
+          "
+      ></a-entity>
+
+      <!-- 5. Generate a 3D audio spectrogram -->
+      <a-entity
+        position="2 -4 -8"
+        scale="1 1 1"
+        audioanalyser="src: #song"
+        spectrogram=
+          "
+           positionScale: 0 10 0;
+           bins: 30;
+           samples: 30;
+           binSpacing: 0.5;
+           sampleSpacing: 0.5;
+          "
+      ></a-entity>
+
+<!-- End coding here -->
+      <a-sky color="#7777EC"></a-sky>
+      <!-- <a-entity environment></a-entity> -->
+    </a-scene>
+
+    <div class="audio-controls">
+      <button class="control pause-btn interact" type="button" name="pause-button">Play</button>
+      <div class="control volume-adjust">
+        <h4 class="volume-label">Volume: </h4>
+        <input type="range" class="volume-slider interact" name="volume-slider" min="0" max="1" value="0.4" step="0.025">
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="./audio-controls.js"></script>
+</html>
