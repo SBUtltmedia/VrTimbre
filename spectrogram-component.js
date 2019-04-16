@@ -34,6 +34,7 @@ AFRAME.registerComponent('spectrogram', {
     },
     init: function () {
       // Create empty array that will hold samples at time 'x'
+      console.log()
       this.sampleT = []
 
       // Clone the initial values of the element's scale and position
@@ -85,7 +86,7 @@ AFRAME.registerComponent('spectrogram', {
     },
     tick: function () {
       const audioAnalyser = this.el.components.audioanalyser
-      if (!audioAnalyser) return console.error(`No audio analyser component connected to element with id=${this.el.id}`);
+    //  if (!audioAnalyser) return console.error(`No audio analyser component connected to element with id=${this.el.id}`);
 
       // Get average levels of bins
       const levels = audioAnalyser.levels

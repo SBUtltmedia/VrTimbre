@@ -61,6 +61,7 @@
 	  },
 
 	  getOrCreateAnalyser: function (data) {
+			console.log(this.data,data)
 	    if (!context) { context = new AudioContext() || new webkitAudioContext(); }
 	    var analysers = this.analysers;
 	    var analyser = context.createAnalyser();
@@ -114,11 +115,12 @@
 	    if (data.unique) {
 	      init(system.createAnalyser(data));
 	    } else {
-	      init(system.getOrCreateAnalyser(data));
+	     init()
 	    }
 
-	    function init (analyser) {
-	      self.analyser = analyser;
+	    function init () {
+				analyser=system.getOrCreateAnalyser(data);
+	      self.analyser =analyser;
 	      self.levels = new Uint8Array(self.analyser.frequencyBinCount);
 	      self.waveform = new Uint8Array(self.analyser.fftSize);
 	      self.el.emit('audioanalyser-ready', {analyser: analyser});
