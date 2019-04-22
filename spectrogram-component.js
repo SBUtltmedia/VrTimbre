@@ -39,7 +39,7 @@ AFRAME.registerComponent('spectrogram', {
 
       // Clone the initial values of the element's scale and position
       this.initialScale = this.el.object3D.scale.clone()
-      this.initialPos = this.el.object3D.position.clone()
+      this.initialPos = {x:0,y:0,z:0}//this.el.object3D.position.clone()
       this.childrenInitialPos = []
 
       // Set up the positioning scheme as a line along an axis using the
