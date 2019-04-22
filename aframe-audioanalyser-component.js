@@ -61,7 +61,6 @@
 	  },
 
 	  getOrCreateAnalyser: function (data) {
-			console.log(this.data,data)
 	    if (!context) { context = new AudioContext() || new webkitAudioContext(); }
 	    var analysers = this.analysers;
 	    var analyser = context.createAnalyser();

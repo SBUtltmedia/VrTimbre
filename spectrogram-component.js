@@ -79,6 +79,8 @@ AFRAME.registerComponent('spectrogram', {
           this.el.appendChild(childEntity)
           childEntity.setAttribute('geometry', { primitive: this.data.shape })
           childEntity.setAttribute('material', { color: this.data.color })
+          // add particle to each box
+          // childEntity.setAttribute('particle-system', { color: this.data.color })
           childEntity.setAttribute('position', ...setChildPosition(i, j))
           this.childrenInitialPos.push(...setChildPosition(i, j))
         }

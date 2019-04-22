@@ -9,6 +9,7 @@
     <script src="./audio-level-scale-component.js"></script>
     <script src="./frequency-spectrum-component.js"></script>
     <script src="./spectrogram-component.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -18,9 +19,15 @@
         <audio timeout="100000"
           id="song"
           preload="auto"
-          src="assets/M.S.Singer - Eye Spy - 01 The Calm Before.mp3"
+          src="assets/Yasunao.mp3"
         ></audio>
       </a-assets>
+      <!-- <a-entity position="0 0 0" particle-system="color: #EF0000,#44CC00"></a-entity> -->
+      <!-- <a-entity position="4 1.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-entity position="9 2.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-entity position="0 3.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-entity position="0 4.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-entity position="0 5.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity> -->
 
       <!-- 4. Generate a 3D audio frequency spectrum -->
       <!-- <a-entity
@@ -40,14 +47,15 @@
 
       <!-- 5. Generate a 3D audio spectrogram -->
       <a-entity
-        position="2 -4 -8"
+        position="35 -6 -10"
+        rotation="0 180 0"
         scale="1 1 1"
         audioanalyser="src: #song"
         spectrogram=
           "
            positionScale: 0 10 0;
            bins: 30;
-           samples: 300;
+           samples: 50;
            binSpacing: 0.5;
            sampleSpacing: 0.5;
           "
