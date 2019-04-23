@@ -93,6 +93,7 @@
 	    fftSize: {default: 2048},
 	    smoothingTimeConstant: {default: 0.8},
 	    src: {type: 'selector'},
+			// What is this?
 	    unique: {default: false}
 	  },
 
@@ -119,7 +120,7 @@
 
 	    function init () {
 	self.el.addEventListener('audioContextReady',()=>{
-	    console.log('got that audioContextReady')  
+	    // console.log('got that audioContextReady')
 	    analyser=system.getOrCreateAnalyser(data);
 	      self.analyser =analyser;
 	      self.levels = new Uint8Array(self.analyser.frequencyBinCount);

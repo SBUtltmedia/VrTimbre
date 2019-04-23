@@ -28,8 +28,9 @@ function setupAudio() {
       if (pauseBtn.innerText === "Play") {
         audio.pause()
       } else if (pauseBtn.innerText === "Pause") {
+        // Tell audioanalyser that a user event has occurred
         let allAudioAnalysers = document.querySelectorAll("a-entity[audioanalyser]")
-	allAudioAnalysers[0].emit('audioContextReady');
+	allAudioAnalysers.forEach(el=>el.emit('audioContextReady'));
 	audio.play()
       }
     }
