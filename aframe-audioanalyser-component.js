@@ -86,7 +86,7 @@
 	 */
 	AFRAME.registerComponent('audioanalyser', {
 	  schema: {
-	    enableBeatDetection: {default: false},
+	    enableBeatDetection: {default: true},
 	    enableLevels: {default: true},
 	    enableWaveform: {default: true},
 	    enableVolume: {default: true},
@@ -118,12 +118,15 @@
 	    }
 
 	    function init () {
-				analyser=system.getOrCreateAnalyser(data);
+	self.el.addEventListener('audioContextReady',()=>{
+	    console.log('got that audioContextReady')  
+	    analyser=system.getOrCreateAnalyser(data);
 	      self.analyser =analyser;
 	      self.levels = new Uint8Array(self.analyser.frequencyBinCount);
 	      self.waveform = new Uint8Array(self.analyser.fftSize);
 	      self.el.emit('audioanalyser-ready', {analyser: analyser});
-	    }
+	    });
+		}
 	  },
 
 	  /**

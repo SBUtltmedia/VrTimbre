@@ -28,7 +28,9 @@ function setupAudio() {
       if (pauseBtn.innerText === "Play") {
         audio.pause()
       } else if (pauseBtn.innerText === "Pause") {
-        audio.play()
+        let allAudioAnalysers = document.querySelectorAll("a-entity[audioanalyser]")
+	allAudioAnalysers[0].emit('audioContextReady');
+	audio.play()
       }
     }
     // Slider to vary the audio volume over a range from 0 to 1, set initial

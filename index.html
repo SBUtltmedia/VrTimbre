@@ -19,7 +19,7 @@
         <audio timeout="100000"
           id="song"
           preload="auto"
-          src="assets/Yasunao.mp3"
+          src="assets/Lux.mp3"
         ></audio>
       </a-assets>
       <!-- <a-entity position="0 0 0" particle-system="color: #EF0000,#44CC00"></a-entity> -->
@@ -45,20 +45,21 @@
           "
       ></a-entity>
  -->
- <a-sky color="#7777EC"></a-sky>
+ <a-sky color="black"></a-sky>
       <!-- 5. Generate a 3D audio spectrogram -->
       <a-entity
-        position="20 -6 -10"
+        position="20 -12 -5"
         rotation="0 180 0"
         scale="1 1 1"
+        color="white"
         audioanalyser="src: #song"
         spectrogram=
           "
            positionScale: 0 10 0;
-           bins: 30;
-           samples: 50;
-           binSpacing: 0.5;
-           sampleSpacing: 0.5;
+           bins: 40;
+           samples: 130;
+           binSpacing: 0.1;
+           sampleSpacing: 0.1;
           "
       ></a-entity>
 
