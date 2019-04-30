@@ -5,15 +5,15 @@
     <meta name="description" content="Audio Visualizer">
     <link rel="stylesheet" href="style.css">
     <script src="//aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <!-- <script src="./aframe-audioanalyser-component.js"></script>
+    <script src="./aframe-audioanalyser-component.js"></script>
     <script src="./audio-level-scale-component.js"></script>
     <script src="./frequency-spectrum-component.js"></script>
-    <script src="./spectrogram-component.js"></script> -->
+    <script src="./spectrogram-component.js"></script>
     <!-- Levels in BG components -->
-    <script src="./AAcomponents/build.js"></script>
-<script src="./AAcomponents/audioanalyser-levels-scale.js"></script>
-<script src="./AAcomponents/scale-y-color.js"></script>
-  <!-- Particle Components -->
+    <!-- <script src="./AAcomponents/build.js"></script> -->
+<!-- <script src="./AAcomponents/audioanalyser-levels-scale.js"></script> -->
+<!-- <script src="./AAcomponents/scale-y-color.js"></script> -->
+  Particle Components
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
   </head>
   <body>
@@ -34,9 +34,15 @@
           src="assets/SnowCone.mp3"
         ></audio>
       </a-assets> -->
+      <a-scene meyda evironment="preset: forest">
+      <a-sphere meyda-uptake position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+
+        <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio>
+
+      </a-scene>
 
 
-      <a-scene antialias="true">
+      <!-- <a-scene antialias="true">
            <a-assets>
              <a-mixin id="bar"
                geometry="primitive: box"
@@ -45,7 +51,7 @@
              ></a-mixin>
              <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio>
            </a-assets>
-
+ -->
       <!-- <a-entity position="0 0 0" particle-system="color: #EF0000,#44CC00"></a-entity> -->
       <!-- <a-entity position="4 1.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
       <a-entity position="9 2.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
@@ -67,12 +73,12 @@
            spacing: 0 0 0.1;
            color: hotpink
           "
-      ></a-entity>
- -->
+      ></a-entity> -->
+
  <!-- <a-sky color="black"></a-sky> -->
       <!-- 5. Generate a 3D audio spectrogram -->
       <!-- <a-entity
-        position="30 -12 -5"
+        position="40 0 -5"
         rotation="0 180 0"
         scale="1 1 1"
         color="white"
@@ -87,23 +93,23 @@
           "
       ></a-entity> -->
 
-      <a-entity
+      <!-- <a-entity
   audioanalyser="src: #song; smoothingTimeConstant: 0.9"
   audioanalyser-levels-scale="max: 50; multiplier: 0.06"
   entity-generator="mixin: bar; num: 256"
   layout="type: circle; radius: 10"
   rotation="0 180 0"
 ></a-entity>
-
-<a-light type="ambient" color="#222"></a-light>
+ -->
+<!-- <a-light type="ambient" color="#222"></a-light>
 <a-light type="point" position="0 1 0" intensity="2"></a-light>
 <a-circle color="#333" opacity="0.8" rotation="-90 0 0" radius="12"
   roughness="1"></a-circle>
-<a-sky color="#222"></a-sky>
+<a-sky color="#222"></a-sky> -->
 
 <!-- End coding here -->
       <!-- <a-entity environment></a-entity> -->
-    </a-scene>
+    <!-- </a-scene> -->
 
     <div class="audio-controls">
       <button class="control pause-btn interact" type="button" name="pause-button">Play</button>
