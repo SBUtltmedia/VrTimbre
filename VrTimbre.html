@@ -9,9 +9,8 @@
     <script src="./audio-level-scale-component.js"></script>
     <script src="./frequency-spectrum-component.js"></script>
     <script src="./spectrogram-component.js"></script>
-    <script src="./aframe-meyda-component.min.js"></script>
+    <!-- <script src="./aframe-meyda-component.min.js"></script> -->
 
-    <!-- <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script> -->
     <script src="./aframe-spcent2p-component.js"></script>
     <script src="./aframe-meyda-component.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
@@ -30,7 +29,6 @@
          var self = this;},
 
       update: function () {
-
       },
       tick:function(){
     let features = document.querySelectorAll('[meyda]')[0].components.meyda.features||{};
@@ -58,27 +56,29 @@
 <!-- Start coding here -->
       <!-- 1. Preload an audio file -->
       <a-scene meyda evironment="preset: forest">
-      <!-- <a-assets> -->
+      <!-- <a-scene meyda evironment="preset: forest"> -->
+      <a-assets>
         <!-- <a-mixin id="bar"
         geometry="primitive: box"
         material="color: black"
         scale-y-color="from: 10 60 10; to: 180 255 180; maxScale: 15"
         ></a-mixin> -->
 
-        <!-- <audio timeout="100000"
-        id="song"
-        loop="true"
-        preload="auto"
-        src="assets/SnowCone.mp3"
-        ></audio>
-      </a-assets> -->
+          <audio
+          timeout="100000"
+          id="song"
+          loop="true"
+          preload="auto"
+          src="assets/SnowCone.mp3"
+          ></audio>
+      </a-assets>
 
 
       <a-sphere spcent2p position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
 
-      <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio>
+      <!-- <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio> -->
 
-      </a-scene>
+      <!-- </a-scene> -->
 
 
       <!-- <a-scene antialias="true">
@@ -116,7 +116,7 @@
 
  <!-- <a-sky color="black"></a-sky> -->
       <!-- 5. Generate a 3D audio spectrogram -->
-      <!-- <a-entity
+      <a-entity
         position="40 0 -5"
         rotation="0 180 0"
         scale="1 1 1"
@@ -130,7 +130,7 @@
            binSpacing: 0.1;
            sampleSpacing: 0.1;
           "
-      ></a-entity> -->
+      ></a-entity>
 
       <!-- <a-entity
   audioanalyser="src: #song; smoothingTimeConstant: 0.9"
@@ -148,15 +148,15 @@
 
 <!-- End coding here -->
       <!-- <a-entity environment></a-entity> -->
-    <!-- </a-scene> -->
+    </a-scene>
 
-    <!-- <div class="audio-controls">
+    <div class="audio-controls">
       <button class="control pause-btn interact" type="button" name="pause-button">Play</button>
       <div class="control volume-adjust">
         <h4 class="volume-label">Volume: </h4>
         <input type="range" class="volume-slider interact" name="volume-slider" min="0" max="1" value="0.4" step="0.025">
       </div>
-    </div> -->
+    </div>
   </body>
-  <!-- <script type="text/javascript" src="./audio-controls.js"></script> -->
+  <script type="text/javascript" src="./audio-controls.js"></script>
 </html>
