@@ -7,10 +7,11 @@ AFRAME.registerComponent('audiocontext', {
 
   },
   init: function() {
-
+console.log("init")
 	if (window.AudioContext !== undefined) {
 		this.context = new AudioContext();
-		else{
+
+  }else{
 		if (window.hasOwnProperty('webkitAudioContext') && !window.hasOwnProperty('AudioContext')) {
 			window.AudioContext = webkitAudioContext;
 		}
@@ -24,11 +25,12 @@ AFRAME.registerComponent('audiocontext', {
 
 
 
-		var song = document.getElementById(this.data.source);
-		var stream = this.context.createMediaElementSource(song);
-		stream.connect(this.context.destination);
-		emit("contextReady")
-  }
+
+  }		this.source = document.getElementById(this.data.source);
+  		this.stream = this.context.createMediaElementSource(this.source);
+  		this.stream.connect(this.context.destination);
+  		this.el.emit("contextReady")
+      console.log("emit")
 },
 
   update: function() {

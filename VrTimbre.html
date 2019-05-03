@@ -10,9 +10,10 @@
     <script src="./frequency-spectrum-component.js"></script>
     <script src="./spectrogram-component.js"></script>
     <!-- <script src="./aframe-meyda-component.min.js"></script> -->
+    <script src="./aframe-audiocontext-component.js"></script>
 
     <script src="./aframe-spcent2p-component.js"></script>
-    <script src="./aframe-meyda-component.min.js"></script>
+    <script src="./aframe-meyda-component.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
 
 
@@ -56,7 +57,7 @@
 <!-- Start coding here -->
       <!-- 1. Preload an audio file -->
       <!-- <a-scene meyda evironment="preset: forest"> -->
-      <!-- <a-scene meyda evironment="preset: forest"> -->
+      <a-scene meyda audiocontext evironment="preset: forest">
       <a-assets>
         <!-- <a-mixin id="bar"
         geometry="primitive: box"
@@ -74,7 +75,7 @@
       </a-assets>
 
 
-      <a-sphere meyda spcent2p position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-sphere spcent2p position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
 
       <!-- <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio> -->
 
@@ -125,8 +126,8 @@
         spectrogram=
           "
            positionScale: 0 10 0;
-           bins: 60;
-           samples: 100;
+           bins: 20;
+           samples: 30;
            binSpacing: 0.1;
            sampleSpacing: 0.1;
           "
