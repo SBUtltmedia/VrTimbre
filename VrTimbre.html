@@ -9,36 +9,72 @@
     <script src="./audio-level-scale-component.js"></script>
     <script src="./frequency-spectrum-component.js"></script>
     <script src="./spectrogram-component.js"></script>
-    <script src="./aframe-spCent2P-component.js"></script>
     <script src="./aframe-meyda-component.min.js"></script>
+
+    <!-- <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script> -->
+    <script src="./aframe-spcent2p-component.js"></script>
+    <script src="./aframe-meyda-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+
+
+    <!-- <script>
+    AFRAME.registerComponent('meyda-uptake', {
+      schema: {
+        propertyAssignedToSpectralCentroid: {type: 'string', default: 'radius'},
+        BaseValue: { type: 'int', default: 0 },
+        ScaleFactor: { type: 'int', default: 10 }
+
+      },
+      init: function () {
+         // Closure to access fresh `this.data` from event handler context.
+         var self = this;},
+
+      update: function () {
+
+      },
+      tick:function(){
+    let features = document.querySelectorAll('[meyda]')[0].components.meyda.features||{};
+    // this.el.setAttribute("radius",features.spectralCentroid/20)
+    this.el.setAttribute(this.data.propertyAssignedToSpectralCentroid,features.spectralCentroid/10)
+    console.log(this.data)
+    console.log(features)
+
+      }
+    });
+    </script> -->
+
+    <!-- Stock Environment Options -->
+    <!-- <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script> -->
 
     <!-- Levels in BG components -->
     <!-- <script src="./AAcomponents/build.js"></script> -->
 <!-- <script src="./AAcomponents/audioanalyser-levels-scale.js"></script> -->
 <!-- <script src="./AAcomponents/scale-y-color.js"></script> -->
   <!-- Particle Components -->
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> -->
   </head>
   <body>
     <!-- <a-scene> -->
 <!-- Start coding here -->
       <!-- 1. Preload an audio file -->
-      <!-- <a-assets>
-        <a-mixin id="bar"
-       geometry="primitive: box"
-       material="color: black"
-       scale-y-color="from: 10 60 10; to: 180 255 180; maxScale: 15"
-     ></a-mixin>
+      <a-scene meyda evironment="preset: forest">
+      <!-- <a-assets> -->
+        <!-- <a-mixin id="bar"
+        geometry="primitive: box"
+        material="color: black"
+        scale-y-color="from: 10 60 10; to: 180 255 180; maxScale: 15"
+        ></a-mixin> -->
 
-        <audio timeout="100000"
-          id="song"
-          loop="true"
-          preload="auto"
-          src="assets/SnowCone.mp3"
+        <!-- <audio timeout="100000"
+        id="song"
+        loop="true"
+        preload="auto"
+        src="assets/SnowCone.mp3"
         ></audio>
       </a-assets> -->
-      <a-scene meyda evironment="preset: forest">
-      <a-sphere spCent2P position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+
+
+      <a-sphere spcent2p position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
 
       <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio>
 
@@ -114,13 +150,13 @@
       <!-- <a-entity environment></a-entity> -->
     <!-- </a-scene> -->
 
-    <div class="audio-controls">
+    <!-- <div class="audio-controls">
       <button class="control pause-btn interact" type="button" name="pause-button">Play</button>
       <div class="control volume-adjust">
         <h4 class="volume-label">Volume: </h4>
         <input type="range" class="volume-slider interact" name="volume-slider" min="0" max="1" value="0.4" step="0.025">
       </div>
-    </div>
+    </div> -->
   </body>
-  <script type="text/javascript" src="./audio-controls.js"></script>
+  <!-- <script type="text/javascript" src="./audio-controls.js"></script> -->
 </html>
