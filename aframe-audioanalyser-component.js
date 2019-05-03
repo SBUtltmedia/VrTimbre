@@ -58,28 +58,59 @@
 	AFRAME.registerSystem('audioanalyser', {
 	  init: function () {
 	    this.analysers = {};
+
+		_this=this
+		addEventListener('contextReady',()=>{
+
+
+		this.audiocontext =document.querySelector('[audiocontext]').components.audiocontext
+			console.log(this.audiocontext)
+})
 	  },
 
-	  getOrCreateAnalyser: function (data) {
-	    if (!context) { context = new AudioContext() || new webkitAudioContext(); }
-	    var analysers = this.analysers;
-	    var analyser = context.createAnalyser();
-	    var audioEl = data.src;
-	    var src = audioEl.getAttribute('src');
+	//   getOrCreateAnalyser: function (data) {
+	//     if (!context) { context = new AudioContext() || new webkitAudioContext(); }
+	//     var analysers = this.analysers;
+	//     var analyser = context.createAnalyser();
+	//     var audioEl = data.src;
+	//     var src = audioEl.getAttribute('src');
+	//
+	//     if (analysers[src]) { return analysers[src]; }
+	//
+	//     var source = context.createMediaElementSource(audioEl)
+	//     source.connect(analyser);
+	//     analyser.connect(context.destination);
+	//     analyser.smoothingTimeConstant = data.smoothingTimeConstant;
+	//     analyser.fftSize = data.fftSize;
+	//
+	//     // Store.
+	//     analysers[src] = analyser;
+	//     return analysers[src];
+	//   }
+	// });
 
-	    if (analysers[src]) { return analysers[src]; }
 
-	    var source = context.createMediaElementSource(audioEl)
-	    source.connect(analyser);
-	    analyser.connect(context.destination);
-	    analyser.smoothingTimeConstant = data.smoothingTimeConstant;
-	    analyser.fftSize = data.fftSize;
+	getOrCreateAnalyser: function (data) {
+		if (!context) { context = new AudioContext() || new webkitAudioContext(); }
+		var analysers = this.analysers;
+		console.log("audiocontext",this.audiocontext)
+		var analyser = this.audiocontext.context.createAnalyser();
+		var audioEl = data.src;
+		var src = audioEl.getAttribute('src');
 
-	    // Store.
-	    analysers[src] = analyser;
-	    return analysers[src];
-	  }
-	});
+		if (analysers[src]) { return analysers[src]; }
+
+		var source = _this.audiocontext.stream
+		source.connect(analyser);
+		analyser.connect(this.audiocontext.context.destination);
+		analyser.smoothingTimeConstant = data.smoothingTimeConstant;
+		analyser.fftSize = data.fftSize;
+
+		// Store.
+		analysers[src] = analyser;
+		return analysers[src];
+	}
+});
 
 	/**
 	 * Audio visualizer component for A-Frame using AnalyserNode.

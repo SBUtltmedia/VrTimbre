@@ -89,7 +89,7 @@ AFRAME.registerComponent('spectrogram', {
     tick: function () {
 
 		    if (!this.audioAnalyser.levels) return console.log(`No audio analyser component yet`);
-	console.log(this.audioAnalyser)
+	// console.log(this.audioAnalyser)
 
       // Get average levels of bins
       const levels = this.audioAnalyser.levels
