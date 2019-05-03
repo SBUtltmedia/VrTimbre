@@ -52,10 +52,10 @@
     <!-- <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> -->
   </head>
   <body>
-    <!-- <a-scene> -->
+    <a-scene>
 <!-- Start coding here -->
       <!-- 1. Preload an audio file -->
-      <a-scene meyda evironment="preset: forest">
+      <!-- <a-scene meyda evironment="preset: forest"> -->
       <!-- <a-scene meyda evironment="preset: forest"> -->
       <a-assets>
         <!-- <a-mixin id="bar"
@@ -74,7 +74,7 @@
       </a-assets>
 
 
-      <a-sphere spcent2p position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-sphere meyda spcent2p position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
 
       <!-- <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio> -->
 
@@ -131,6 +131,23 @@
            sampleSpacing: 0.1;
           "
       ></a-entity>
+
+      <a-entity
+        position="40 3 -5"
+        rotation="0 180 0"
+        scale="1 1 1"
+        color="white"
+        audioanalyser="src: #song"
+        spectrogram=
+          "
+           positionScale: 0 10 0;
+           bins: 60;
+           samples: 100;
+           binSpacing: 0.1;
+           sampleSpacing: 0.1;
+          "
+      ></a-entity>
+
 
       <!-- <a-entity
   audioanalyser="src: #song; smoothingTimeConstant: 0.9"
