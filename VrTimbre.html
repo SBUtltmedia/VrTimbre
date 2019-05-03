@@ -9,6 +9,7 @@
     <script src="./audio-level-scale-component.js"></script>
     <script src="./frequency-spectrum-component.js"></script>
     <script src="./spectrogram-component.js"></script>
+    <script src="./aframe-spCent2P-component.js"></script>
     <script src="./aframe-meyda-component.min.js"></script>
 
     <!-- Levels in BG components -->
@@ -37,9 +38,9 @@
         ></audio>
       </a-assets> -->
       <a-scene meyda evironment="preset: forest">
-      <a-sphere meyda-uptake position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-sphere spCent2P position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
 
-        <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio>
+      <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio>
 
       </a-scene>
 
