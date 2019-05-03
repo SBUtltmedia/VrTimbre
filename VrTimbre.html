@@ -75,7 +75,7 @@
       </a-assets>
 
 
-      <a-sphere spcent2p spcent2c position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-sphere spcent2p spcent2c position="0 1.25 -20" radius="1.25" color="#EF2D5E"></a-sphere>
 
       <!-- <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio> -->
 
@@ -118,7 +118,7 @@
  <a-sky spcent2c color="black"></a-sky>
       <!-- 5. Generate a 3D audio spectrogram -->
       <a-entity
-        position="40 -10 -5"
+        position="40 -16 -5"
         rotation="0 180 0"
         scale="1 1 1"
         color="white"
@@ -127,15 +127,15 @@
           "
            positionScale: 0 10 0;
            bins: 60;
-           samples: 100;
-           binSpacing: 0.1;
-           sampleSpacing: 0.1;
+           samples: 80;
+           binSpacing: 0;
+           sampleSpacing: 0;
           "
       ></a-entity>
 
       <a-entity
-        position="40 10 -5"
-        rotation="0 180 0"
+        position="-20 16 -5"
+        rotation="0 180 180"
         scale="1 1 1"
         color="white"
         audioanalyser="src: #song"
@@ -143,9 +143,9 @@
           "
            positionScale: 0 10 0;
            bins: 60;
-           samples: 100;
-           binSpacing: 0.1;
-           sampleSpacing: 0.1;
+           samples: 80;
+           binSpacing: 0;
+           sampleSpacing: 0;
           "
       ></a-entity>
 
