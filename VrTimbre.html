@@ -13,6 +13,7 @@
     <script src="./aframe-audiocontext-component.js"></script>
 
     <script src="./aframe-spcent2p-component.js"></script>
+    <script src="./aframe-spcent2c-component.js"></script>
     <script src="./aframe-meyda-component.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
 
@@ -53,7 +54,6 @@
     <!-- <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> -->
   </head>
   <body>
-    <!-- <a-scene> -->
 <!-- Start coding here -->
       <!-- 1. Preload an audio file -->
       <!-- <a-scene meyda evironment="preset: forest"> -->
@@ -75,7 +75,7 @@
       </a-assets>
 
 
-      <a-sphere spcent2p position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-sphere spcent2p spcent2c position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
 
       <!-- <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio> -->
 
@@ -115,7 +115,7 @@
           "
       ></a-entity> -->
 
- <!-- <a-sky color="black"></a-sky> -->
+ <a-sky color="black"></a-sky>
       <!-- 5. Generate a 3D audio spectrogram -->
       <a-entity
         position="40 0 -5"
@@ -133,7 +133,7 @@
           "
       ></a-entity>
 
-      <!-- <a-entity
+      <a-entity
         position="40 3 -5"
         rotation="0 180 0"
         scale="1 1 1"
@@ -147,7 +147,7 @@
            binSpacing: 0.1;
            sampleSpacing: 0.1;
           "
-      ></a-entity> -->
+      ></a-entity>
 
 
       <!-- <a-entity
