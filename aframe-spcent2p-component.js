@@ -26,7 +26,7 @@ AFRAME.registerComponent('spcent2p', {
     let features = document.querySelectorAll('[meyda]')[0].components.meyda.features || {};
     // this.el.setAttribute("radius",features.spectralCentroid/20)
     this.el.setAttribute(this.data.propertyAssignedToSpectralCentroid, features.spectralCentroid / 20)
-    console.log(this.data)
+    // console.log(this.data)
     //console.log(features)
 
   }
