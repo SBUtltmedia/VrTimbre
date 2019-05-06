@@ -41,3 +41,11 @@
   font-size: 1em;
   margin-right: 0.3em;
 }
+
+.imgprev li a {
+    background-size: cover;
+    display: block;
+    padding: 0;
+    height: 10rem;
+    width: 40rem;
+}

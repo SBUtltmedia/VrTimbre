@@ -32,7 +32,8 @@ AFRAME.registerComponent('spcent2c', {
             g = (num & 0xFF00) >>> 8,
             r = (num & 0xFF0000) >>> 16,
             a = ( (num & 0xFF000000) >>> 24 ) / 255 ;
-        return "rgba(" + [r, g, b, a].join(",") + ")";
+        // return "rgba(" + [r, g, b, a].join(",") + ")";
+        return "rgba(" + [r, g, b].join(",") + ")";
     }
     this.el.setAttribute(this.data.propertyAssignedToSpectralCentroid, toColor(features.spectralCentroid+30))
     // this.el.setAttribute(this.data.propertyAssignedToSpectralCentroid, toColor(this.BaseValue+features.spectralCentroid*this.ScaleFactor))

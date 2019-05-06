@@ -3639,7 +3639,7 @@ console.log(_this.audiocontext)
    */
   tick: function (t) {
 
-  if(this.audioObject) {this.features =    this.audioObject.get(['amplitudeSpectrum', 'spectralCentroid', 'spectralRolloff', 'loudness', 'rms', 'chroma']);
+  if(this.audioObject) {this.features =    this.audioObject.get(['amplitudeSpectrum', 'spectralCentroid', 'spectralRolloff', 'loudness', 'rms', 'chroma','spectralFlatness']);
 }
 // this.ffts.pop();
 //  this.ffts.unshift(features.amplitudeSpectrum);
