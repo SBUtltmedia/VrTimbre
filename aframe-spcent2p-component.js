@@ -1,6 +1,6 @@
 AFRAME.registerComponent('spcent2p', {
   schema: {
-    propertyAssignedToSpectralCentroid: {
+    property: {
       type: 'string',
       default: 'radius'
     },
@@ -25,7 +25,7 @@ AFRAME.registerComponent('spcent2p', {
   tick: function() {
     let features = document.querySelectorAll('[meyda]')[0].components.meyda.features || {};
     // this.el.setAttribute("radius",features.spectralCentroid/20)
-    this.el.setAttribute(this.data.propertyAssignedToSpectralCentroid, features.spectralCentroid / 20)
+    this.el.setAttribute(this.data.property, features.spectralCentroid / this.data.ScaleFactor)
     // console.log(this.data)
     // console.log(features.spectralCentroid)
 
