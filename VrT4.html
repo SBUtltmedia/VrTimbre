@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vr Timbre: Timbre Visualizer</title>
+    <meta name="description" content="Audio Visualizer">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
+    <script src="./aframe-audioanalyser-component.js"></script>
+    <script src="./audio-level-scale-component.js"></script>
+    <script src="./frequency-spectrum-component.js"></script>
+    <script src="./spectrogram-component.js"></script>
+    <!-- <script src="./aframe-meyda-component.min.js"></script> -->
+    <script src="./aframe-audiocontext-component.js"></script>
+
+    <script src="./aframe-spcent2p-component.js"></script>
+    <script src="./aframe-spcent2c-component.js"></script>
+    <script src="./aframe-spflat2scale-component.js"></script>
+    <script src="./aframe-spflat2invertedscale-component.js"></script>
+    <script src="./aframe-meyda-component.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+
+
+    <!-- <script>
+    AFRAME.registerComponent('meyda-uptake', {
+      schema: {
+        propertyAssignedToSpectralCentroid: {type: 'string', default: 'radius'},
+        BaseValue: { type: 'int', default: 0 },
+        ScaleFactor: { type: 'int', default: 10 }
+
+      },
+      init: function () {
+         // Closure to access fresh `this.data` from event handler context.
+         var self = this;},
+
+      update: function () {
+      },
+      tick:function(){
+    let features = document.querySelectorAll('[meyda]')[0].components.meyda.features||{};
+    // this.el.setAttribute("radius",features.spectralCentroid/20)
+    this.el.setAttribute(this.data.propertyAssignedToSpectralCentroid,features.spectralCentroid/10)
+    console.log(this.data)
+    console.log(features)
+
+      }
+    });
+    </script> -->
+
+    <!-- Stock Environment Options -->
+    <!-- <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script> -->
+
+    <!-- Levels in BG components -->
+    <!-- <script src="./AAcomponents/build.js"></script> -->
+<!-- <script src="./AAcomponents/audioanalyser-levels-scale.js"></script> -->
+<!-- <script src="./AAcomponents/scale-y-color.js"></script> -->
+  <!-- Particle Components -->
+    <!-- <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> -->
+  </head>
+  <body>
+<!-- Start coding here -->
+      <!-- 1. Preload an audio file -->
+      <!-- <a-scene meyda evironment="preset: forest"> -->
+      <a-scene meyda audiocontext evironment="preset: forest">
+      <a-assets>
+        <!-- <a-mixin id="bar"
+        geometry="primitive: box"
+        material="color: black"
+        scale-y-color="from: 10 60 10; to: 180 255 180; maxScale: 15"
+        ></a-mixin> -->
+
+          <audio
+          timeout="1000"
+          id="song"
+          loop="true"
+          preload="auto"
+          src="assets/SnowCone.mp3"
+          ></audio>
+      </a-assets>
+
+
+      <!-- <a-sphere spflat2scale="ScaleFactor: 100" position="0 1.25 -20" radius="1.25" color="#EF2D5E"></a-sphere> -->
+      <!-- <a-triangle spflat2invertedscale="ScaleFactor: 10" position="0 1.25 -20" color="red"></a-triangle> -->
+      <!-- <a-tetrahedron spflat2scale position="0 1.25 -20"></a-entity> -->
+      <!-- <a-tetrahedron spflat2scale="property: radius;" position="0 1.25 -20"></a-entity> -->
+      <a-tetrahedron spcent2p position="0 1.25 -20" radius="1.25" color="#EF2D5E"></a-tetrahedron>
+
+      <!-- <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio> -->
+
+      <!-- </a-scene> -->
+
+
+      <!-- <a-scene antialias="true">
+           <a-assets>
+             <a-mixin id="bar"
+               geometry="primitive: box"
+               material="color: black"
+               scale-y-color="from: 10 60 10; to: 180 255 180; maxScale: 15"
+             ></a-mixin>
+             <audio id="song" autoplay loop src="assets/SnowCone.mp3"></audio>
+           </a-assets>
+ -->
+      <!-- <a-entity position="0 0 0" particle-system="color: #EF0000,#44CC00"></a-entity> -->
+      <!-- <a-entity position="4 1.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-entity position="9 2.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-entity position="0 3.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-entity position="0 4.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-entity position="0 5.25 -35" particle-system="color: #EF0000,#44CC00"></a-entity> -->
+
+      <!-- 4. Generate a 3D audio frequency spectrum -->
+      <!-- <a-entity
+        position="-2 -1 -3"
+        scale="1 1 1"
+        audioanalyser="src: #song"
+        frequency-spectrum=
+          "
+           sizeScale: 0 10 0;
+           bins: 20;
+           offsetY: true;
+           binAlong: z-axis;
+           spacing: 0 0 0.1;
+           color: hotpink
+          "
+      ></a-entity> -->
+
+ <a-sky spcent2c color="black"></a-sky>
+      <!-- 5. Generate a 3D audio spectrogram -->
+      <a-entity
+        position="80 -60 -5"
+        rotation="0 180 0"
+        scale="2 5 2"
+        color="brown"
+        audioanalyser="src: #song"
+        spectrogram=
+          "
+           positionScale: 0 10 0;
+           bins: 60;
+           samples: 80;
+           binSpacing: 0;
+           sampleSpacing: 0;
+          "
+      ></a-entity>
+
+      <!-- <a-entity
+        position="-20 16 -5"
+        rotation="0 180 180"
+        scale="1 1 1"
+        color="white"
+        audioanalyser="src: #song"
+        spectrogram=
+          "
+           positionScale: 0 10 0;
+           bins: 60;
+           samples: 80;
+           binSpacing: 0;
+           sampleSpacing: 0;
+          "
+      ></a-entity> -->
+
+
+      <!-- <a-entity
+  audioanalyser="src: #song; smoothingTimeConstant: 0.9"
+  audioanalyser-levels-scale="max: 50; multiplier: 0.06"
+  entity-generator="mixin: bar; num: 256"
+  layout="type: circle; radius: 10"
+  rotation="0 180 0"
+></a-entity>
+ -->
+<!-- <a-light type="ambient" color="#222"></a-light>
+<a-light type="point" position="0 1 0" intensity="2"></a-light>
+<a-circle color="#333" opacity="0.8" rotation="-90 0 0" radius="12"
+  roughness="1"></a-circle>
+<a-sky color="#222"></a-sky> -->
+
+<!-- End coding here -->
+      <!-- <a-entity environment></a-entity> -->
+    </a-scene>
+
+    <div class="audio-controls">
+      <button class="control pause-btn interact" type="button" name="pause-button">Play</button>
+      <div class="control volume-adjust">
+        <h4 class="volume-label">Volume: </h4>
+        <input type="range" class="volume-slider interact" name="volume-slider" min="0" max="1" value="0.4" step="0.025">
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="./audio-controls.js"></script>
+</html>
